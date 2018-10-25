@@ -1,4 +1,12 @@
+PW = $(openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in password.rsa)
 sudo su
+expect -c  "
+set timeout 10
+spawn sudo reboot
+expect \"password for ubuntu:\"
+send \"${PW}\n\"
+exit 0
+"
 apt install -y ubuntu-mate-desktop
 apt install -y mate-desktop-environment
 apt install -y mate-desktop-environment-extra
