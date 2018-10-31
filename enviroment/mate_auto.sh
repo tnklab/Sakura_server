@@ -16,16 +16,17 @@ yes | sudo ln -s km-0411.ini km-e0010411.ini
 yes | sudo ln -s km-0411.ini km-e0200411.ini
 yes | sudo ln -s km-0411.ini km-e0210411.ini
 yes | sudo /etc/init.d/xrdp restart
-
+yes | sudo update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
+yes | sudo source /etc/default/locale
 #====================================================================
 # remote-setting
 #====================================================================
 yes | sudo apt install -y xrdp
-cat<<EOF>~/.xsession
-export GTX_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS="@im=ibus"
-ibus-daemon -rdx
-mate-session
+cat<<EOF > ~/.xsession
+ export GTX_IM_MODULE=ibus
+ export QT_IM_MODULE=ibus
+ export XMODIFIERS="@im=ibus"
+ ibus-daemon -rdx
+ mate-session
 EOF
 yes | sudo reboot
