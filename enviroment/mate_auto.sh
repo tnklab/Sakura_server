@@ -11,6 +11,7 @@ yes | sudo apt install -y mate-desktop-environment-extra
 yes | sudo apt-get -y install language-pack-ja-base language-pack-ja ibus-mozc
 cd /etc/xrdp
 wget http://www.mail-archive.com/xrdp-devel@lists.sourceforge.net/msg00263/km-e0010411.ini
+mv km-e0010411.ini km-0411.ini
 yes | sudo chmod 644 km-0411.ini
 yes | sudo ln -s km-0411.ini km-e0010411.ini
 yes | sudo ln -s km-0411.ini km-e0200411.ini
